@@ -9,6 +9,10 @@
 		"color": "#011627",
 		"theme": "dark"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/estruyf/vscode-hide-comments"
+	},
 	"engines": {
 		"vscode": "^1.53.0"
 	},
