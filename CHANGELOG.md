@@ -1,9 +1,13 @@
 # Change Log
 
-All notable changes to the "hide-comments" extension will be documented in this file.
+All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [1.0.0]
 
-## [Unreleased]
+- First release of the hide comments extension
+- New commands added for hiding and showing comments
+- Advanced settings for hiding comments 
+
+## [0.0.1]
 
 - Initial release
