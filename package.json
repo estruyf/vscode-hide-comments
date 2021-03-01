@@ -50,6 +50,7 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
+		"vscode:publish": "vsce publish --baseImagesUrl https://raw.githubusercontent.com/estruyf/vscode-hide-comments/main/",
 		"compile": "tsc -p ./",
 		"lint": "eslint src --ext ts",
 		"watch": "tsc -watch -p ./",

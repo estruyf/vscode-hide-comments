@@ -6,17 +6,17 @@
   </a>
 </p>
 
-This extension started as a joke for people who do not like to see comments in the code. The extension will basically set all comments to transparent, they will not be removed.
+This extension started as a joke for people who do not like to see comments in the code. The extension will set all comments to **transparent**. The extension will never remove the comments from the file.
 
 > **Important**: Although it might have been started as a joke. There might be people out there that would actually like to hide the comments in their projects. That is why I will keep this project alive.
 
 ## Usage
 
-When you have installed this extension. Each time you open VSCode, it will perform a check if comments are hidden. If not it will ask you if you want to hide them.
+When you have installed this extension, each time you open VSCode, it checks if comments are shown or not. If comments are visible, it will ask you if you want to hide these for the current project.
 
 ![Do you want to hide the comments of this project?](./assets/hide-comments-dialog.png)
 
-When you choose **Yes** it will at the settings to your user settings for this project. If you choose **No**, nothing will happen at all.
+When you choose **Yes** it will at the settings to your user settings for this project. If you decide **No**, nothing will happen at all.
 
 ## Commands
 
