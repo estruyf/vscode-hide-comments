@@ -2,6 +2,10 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
+## [1.0.1]
+
+- Update for showing images on marketplace
+
 ## [1.0.0]
 
 - First release of the hide comments extension
