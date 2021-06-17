@@ -25,6 +25,22 @@ The extension currently has two commands:
 1. `Hide Comments: Hide all comments`
 2. `Hide Comments: Show all comments`
 
+
+## Removing the extension
+
+When you want to remove the extension, but still have the comments hidden. It is best to first run the `Hide Comments: Show all comments` command. This will make sure that all settings will be reset.
+
+If you did already uninstall the extension, but still your comments are hidden. Here is what you can do:
+
+- Open your workspace settings via: `Preferences: Open Workspace Settings (JSON)`
+- Remove the following code from the JSON file:
+
+```
+"editor.tokenColorCustomizations": {
+  ...
+}
+```
+
 ## Feedback / issues / ideas
 
 Please submit them via creating an issue in the project repository: [issue list](https://github.com/estruyf/vscode-hide-comments/issues).
