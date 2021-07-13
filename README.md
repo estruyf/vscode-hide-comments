@@ -57,3 +57,9 @@ If you did already uninstall the extension, but still your comments are hidden. 
 ## Feedback / issues / ideas
 
 Please submit them via creating an issue in the project repository: [issue list](https://github.com/estruyf/vscode-hide-comments/issues).
+
+<p align="center">
+  <a href="#">
+      <img src="https://estruyf-github.azurewebsites.net/api/VisitorHit?user=estruyf&repo=vscode-hide-comments&countColor=%23F141A8&labelColor=%230E131F" />
+   </a>
+</p>
