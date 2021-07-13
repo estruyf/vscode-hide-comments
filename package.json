@@ -15,6 +15,11 @@
 			"description": "version",
 			"url": "https://img.shields.io/github/package-json/v/estruyf/vscode-hide-comments?color=green&label=vscode-hide-comments&style=flat-square",
 			"href": "https://github.com/estruyf/vscode-hide-comments"
+		},
+		{
+			"description": "Buy me a coffee",
+			"url": "https://img.shields.io/badge/Buy%20me%20a%20coffee-€%203-blue?logo=buy-me-a-coffee&style=flat-square",
+			"href": "https://www.buymeacoffee.com/zMeFRy9"
 		}
 	],
 	"repository": {
@@ -50,7 +55,7 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
-		"vscode:publish": "vsce publish --baseImagesUrl https://raw.githubusercontent.com/estruyf/vscode-hide-comments/main/",
+		"vscode:publish": "vsce publish",
 		"compile": "tsc -p ./",
 		"lint": "eslint src --ext ts",
 		"watch": "tsc -watch -p ./",

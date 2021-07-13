@@ -1,8 +1,22 @@
-# VSCode Hide Comments Extension
-
 <p align="center">
   <a href="https://marketplace.visualstudio.com/items?itemName=eliostruyf.vscode-hide-comments">
     <img alt="Hide Comments" src="./assets/hide-comments.png">
+  </a>
+</p>
+
+<h1 align="center">Hide Comments - VSCode Extension</h1>
+
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=eliostruyf.vscode-hide-comments" title="Check it out on the Visual Studio Marketplace">
+    <img src="https://vsmarketplacebadge.apphb.com/version/eliostruyf.vscode-hide-comments.svg" alt="Visual Studio Marketplace" style="display: inline-block" />
+  </a>
+
+  <img src="https://vsmarketplacebadge.apphb.com/installs/eliostruyf.vscode-hide-comments.svg" alt="Number of installs"  style="display: inline-block;margin-left:10px" />
+  
+  <img src="https://vsmarketplacebadge.apphb.com/rating/eliostruyf.vscode-hide-comments.svg" alt="Ratings" style="display: inline-block;margin-left:10px" />
+
+  <a href="https://www.buymeacoffee.com/zMeFRy9" title="Buy me a coffee" style="margin-left:10px">
+    <img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-€%203-blue?logo=buy-me-a-coffee&style=flat" alt="Buy me a coffee" style="display: inline-block" />
   </a>
 </p>
 
@@ -24,7 +38,6 @@ The extension currently has two commands:
 
 1. `Hide Comments: Hide all comments`
 2. `Hide Comments: Show all comments`
-
 
 ## Removing the extension
 
