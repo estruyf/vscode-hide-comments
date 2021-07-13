@@ -2,7 +2,7 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
-## [1.1.1]
+## [1.2.0]
 
 - Removed image location from `vsce publish` command
 - Added GitHub Actions release workflow
