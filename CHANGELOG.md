@@ -4,7 +4,8 @@ All notable changes to the "eliostruyf.vscode-hide-comments" extension will be d
 
 ## [1.3.0]
 
-- Introduced new `hideComments.defaultEnabled` setting to control the default behavior of the extension.
+- [#8](https://github.com/estruyf/vscode-hide-comments/issues/8): Introduced new `hideComments.defaultEnabled` setting to control the default behavior of the extension.
+- [#9](https://github.com/estruyf/vscode-hide-comments/issues/9): Introduced new `hideComments.cleanStart` setting to control to always show the comments on startup.
 
 ## [1.2.0]
 

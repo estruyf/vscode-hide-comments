@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 
 const CONFIG_SECTION = "hideComments";
 const CONFIG_DEFAULT_ENABLED = "defaultEnabled";
+const CONFIG_CLEAN_START = "cleanStart";
 const CONFIG_TOKENS = "tokenColorCustomizations";
 
 export async function activate({ subscriptions }: vscode.ExtensionContext) {
@@ -11,6 +12,7 @@ export async function activate({ subscriptions }: vscode.ExtensionContext) {
 
 	const extConfig = vscode.workspace.getConfiguration(CONFIG_SECTION);
 	const extDefaultEnabled = extConfig.get<boolean>(CONFIG_DEFAULT_ENABLED);
+	const extCleanStart = extConfig.get<boolean>(CONFIG_CLEAN_START);
 
 	const setComments = async (enabled: boolean) => {
 		if (config && colors) {
@@ -51,12 +53,16 @@ export async function activate({ subscriptions }: vscode.ExtensionContext) {
 
 	// Automatically start when the comments setting is not available
 	if (extDefaultEnabled && config && colors && !colors["comments"]) {
-		var choice = await vscode.window.showInformationMessage("Do you want to hide comments in this project?", "Yes", "No");
+		const choice = await vscode.window.showInformationMessage("Do you want to hide comments in this project?", "Yes", "No");
 		if (choice === "Yes") {
 			setComments(true);
 		} else {
 			setComments(false);
 		}
+	}
+
+	if (extCleanStart && config && colors && colors["comments"]) {
+		setComments(false);
 	}
 
 	const hideCommentsCmd = vscode.commands.registerCommand('hidecomments.hide', () => {

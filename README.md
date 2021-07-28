@@ -26,17 +26,18 @@ This extension started as a joke for people who do not like to see comments in t
 
 ## Usage
 
-When you have installed this extension, each time you open VSCode, it checks if comments are shown or not. If comments are visible, it will ask you if you want to hide these for the current project.
+When the extension is installed. You can use the `Hide Comments` commands to show or hide the comments.
+
+If you want, you can also let the extension ask you each time when you start a new instance if you want to hide the comments. You can do this by enabling the `hideComments.defaultEnabled` setting. When this is set to `true`, you will get the following notification when you start a new instance:
 
 ![Do you want to hide the comments of this project?](./assets/hide-comments-dialog.png)
 
 When you choose **Yes** it will at the settings to your user settings for this project. If you decide **No**, nothing will happen at all.
 
-> You can disable this default behaviour by changing the `hideComments.defaultEnabled` setting to `false`.
-
 ## Settings
 
-- `hideComments.defaultEnabled`: Define if you want to enable or disable the extension on startup of Visual Studio Code. Default: `true`.
+- `hideComments.defaultEnabled`: Define if you want to enable or disable the extension on startup of Visual Studio Code. Default: `false`.
+- `hideComments.cleanStart`: Define if you want to start each instance by showing the comments in your files. Default: `true`.
 
 ## Commands
 

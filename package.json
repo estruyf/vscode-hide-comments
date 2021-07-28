@@ -48,6 +48,11 @@
 				"hideComments.defaultEnabled": {
 					"type": "boolean",
 					"description": "Specify if the hide comments extension is by default enabled on start of the project.",
+					"default": false
+				},
+				"hideComments.cleanStart": {
+					"type": "boolean",
+					"description": "Specify if you want to reset to the default behaviour when you start a new Visual Studio Code instance.",
 					"default": true
 				}
 			}
