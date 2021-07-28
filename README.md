@@ -32,6 +32,12 @@ When you have installed this extension, each time you open VSCode, it checks if 
 
 When you choose **Yes** it will at the settings to your user settings for this project. If you decide **No**, nothing will happen at all.
 
+> You can disable this default behaviour by changing the `hideComments.defaultEnabled` setting to `false`.
+
+## Settings
+
+- `hideComments.defaultEnabled`: Define if you want to enable or disable the extension on startup of Visual Studio Code. Default: `true`.
+
 ## Commands
 
 The extension currently has two commands:

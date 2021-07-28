@@ -1,14 +1,16 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+const CONFIG_SECTION = "hideComments";
+const CONFIG_DEFAULT_ENABLED = "defaultEnabled";
+const CONFIG_TOKENS = "tokenColorCustomizations";
+
 export async function activate({ subscriptions }: vscode.ExtensionContext) {
 	
 	const config = vscode.workspace.getConfiguration("editor");
-	const configSetting = "tokenColorCustomizations";
-	const colors = config.get<any>(configSetting);
+	const colors = config.get<any>(CONFIG_TOKENS);
+
+	const extConfig = vscode.workspace.getConfiguration(CONFIG_SECTION);
+	const extDefaultEnabled = extConfig.get<boolean>(CONFIG_DEFAULT_ENABLED);
 
 	const setComments = async (enabled: boolean) => {
 		if (config && colors) {
@@ -43,12 +45,12 @@ export async function activate({ subscriptions }: vscode.ExtensionContext) {
 
 			colors["textMateRules"] = textMateRules;
 
-			await config.update(configSetting, colors);
+			await config.update(CONFIG_TOKENS, colors);
 		}
-	}
+	};
 
 	// Automatically start when the comments setting is not available
-	if (config && colors && !colors["comments"]) {
+	if (extDefaultEnabled && config && colors && !colors["comments"]) {
 		var choice = await vscode.window.showInformationMessage("Do you want to hide comments in this project?", "Yes", "No");
 		if (choice === "Yes") {
 			setComments(true);

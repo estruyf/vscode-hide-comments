@@ -42,6 +42,16 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"title": "Hide Comments: Configuration",
+			"properties": {
+				"hideComments.defaultEnabled": {
+					"type": "boolean",
+					"description": "Specify if the hide comments extension is by default enabled on start of the project.",
+					"default": true
+				}		
+			}
+		},
 		"commands": [
 			{
 				"command": "hidecomments.hide",
