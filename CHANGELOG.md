@@ -2,6 +2,10 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
+## [1.3.0]
+
+- Introduced new `hideComments.defaultEnabled` setting to control the default behavior of the extension.
+
 ## [1.2.0]
 
 - Removed image location from `vsce publish` command
