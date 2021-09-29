@@ -5,6 +5,17 @@ const CONFIG_DEFAULT_ENABLED = "defaultEnabled";
 const CONFIG_CLEAN_START = "cleanStart";
 const CONFIG_TOKENS = "tokenColorCustomizations";
 
+const trigger = async (enabled: boolean) => {
+	await vscode.commands.executeCommand('setContext', "hideCommentsEnabled", enabled);
+
+	// Folding
+	if (!enabled) {
+		await vscode.commands.executeCommand('editor.foldAllBlockComments');
+	} else {
+		await vscode.commands.executeCommand('editor.unfoldAll');
+	}
+}
+
 export async function activate({ subscriptions }: vscode.ExtensionContext) {
 	
 	const config = vscode.workspace.getConfiguration("editor");
@@ -30,7 +41,15 @@ export async function activate({ subscriptions }: vscode.ExtensionContext) {
 							"comment",
 							"comment.block",
 							"comment.line",
-							"comment.line.double-slash"
+							"comment.line.double-slash",
+							"variable.other.jsdoc",
+							"storage.type.class.jsdoc",
+							"punctuation.definition.block.tag.jsdoc",
+							"punctuation.definition.bracket.curly.begin.jsdoc",
+							"punctuation.definition.bracket.curly.end.jsdoc",
+							"entity.name.type.instance.jsdoc",
+							"comment.block.documentation.ts",
+							"comment.block.documentation.js"
 						],
 						"settings": {
 							"foreground": "#00000000"
@@ -48,6 +67,8 @@ export async function activate({ subscriptions }: vscode.ExtensionContext) {
 			colors["textMateRules"] = textMateRules;
 
 			await config.update(CONFIG_TOKENS, colors);
+
+			trigger(colors && !colors["comments"]);
 		}
 	};
 
@@ -72,6 +93,9 @@ export async function activate({ subscriptions }: vscode.ExtensionContext) {
 	const showCommentsCmd = vscode.commands.registerCommand('hidecomments.show', () => {
 		setComments(false);
 	});
+
+	// Set the type of action to show on the menu
+	trigger(colors && !colors["comments"]);
 
 	subscriptions.push(hideCommentsCmd);
 	subscriptions.push(showCommentsCmd);

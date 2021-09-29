@@ -60,13 +60,29 @@
 		"commands": [
 			{
 				"command": "hidecomments.hide",
-				"title": "Hide Comments: Hide all comments"
+				"title": "Hide Comments: Hide all comments",
+        "icon": "$(eye-closed)"
 			},
 			{
 				"command": "hidecomments.show",
-				"title": "Hide Comments: Show all comments"
+				"title": "Hide Comments: Show all comments",
+        "icon": "$(eye)"
 			}
-		]
+		],
+		"menus": {
+      "editor/title": [
+        {
+          "command": "hidecomments.show",
+          "group": "navigation",
+					"when": "hideCommentsEnabled == false"
+        },
+				{
+          "command": "hidecomments.hide",
+          "group": "navigation",
+					"when": "hideCommentsEnabled == true"
+        }
+      ]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

@@ -2,6 +2,12 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
+## [1.4.0]
+
+- Added a title menu action to toggle to show/hide comments
+- Folding comment blocks when hiding comments gets triggered
+- [#11](https://github.com/estruyf/vscode-hide-comments/issues/11): Hiding JSDoc comments / classes / variables / ... 
+
 ## [1.3.0]
 
 - [#8](https://github.com/estruyf/vscode-hide-comments/issues/8): Introduced new `hideComments.defaultEnabled` setting to control the default behavior of the extension.
