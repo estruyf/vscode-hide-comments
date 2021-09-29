@@ -34,6 +34,12 @@ If you want, you can also let the extension ask you each time when you start a n
 
 When you choose **Yes** it will at the settings to your user settings for this project. If you decide **No**, nothing will happen at all.
 
+## Menu editor title actions
+
+On the editor title, a toggle action is available to show/hide the comments quickly.
+
+![Title bar action toggle](./assets/toggle-action.png)
+
 ## Settings
 
 - `hideComments.defaultEnabled`: Define if you want to enable or disable the extension on startup of Visual Studio Code. Default: `false`.
