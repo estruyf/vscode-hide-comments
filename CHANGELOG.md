@@ -2,6 +2,10 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
+## [1.5.0]
+
+- [#12](https://github.com/estruyf/vscode-hide-comments/issues/12): C# comments support added
+
 ## [1.4.0]
 
 - Added a title menu action to toggle to show/hide comments
