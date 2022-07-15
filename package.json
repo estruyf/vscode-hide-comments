@@ -3,7 +3,7 @@
 	"displayName": "Hide Comments",
 	"description": "VSCode extension for people that do not like to see comments in the code. It allows you to hide/show comments in the code.",
 	"icon": "assets/hide-comments.png",
-	"version": "1.5.0",
+	"version": "1.6.0",
 	"preview": false,
 	"publisher": "eliostruyf",
 	"galleryBanner": {
@@ -54,14 +54,19 @@
 					"default": true
 				},
 				"hideComments.regex": {
-					"type": ["array", "null"],
+					"type": [
+						"array",
+						"null"
+					],
 					"description": "Specify the regular expression to use to hide additional lines.",
 					"default": null,
 					"examples": [
-						[{
-							"regex": "console\\.log\\(([^)]+)\\).*",
-							"flags": "igm"
-						}]
+						[
+							{
+								"regex": "console\\.log\\(([^)]+)\\).*",
+								"flags": "igm"
+							}
+						]
 					],
 					"items": {
 						"type": "object",
