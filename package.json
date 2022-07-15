@@ -116,22 +116,22 @@
 			"editor/title": [
 				{
 					"command": "hidecomments.show",
-					"group": "navigation",
+					"group": "navigation@-133",
 					"when": "hideComments.commentsEnabled == false"
 				},
 				{
 					"command": "hidecomments.hide",
-					"group": "navigation",
+					"group": "navigation@-133",
 					"when": "hideComments.commentsEnabled == true"
 				},
 				{
 					"command": "hidecomments.regex.show",
-					"group": "navigation",
+					"group": "navigation@-132",
 					"when": "hideComments.regexEnabled == true && hideComments.regexUsed == false"
 				},
 				{
 					"command": "hidecomments.regex.hide",
-					"group": "navigation",
+					"group": "navigation@-132",
 					"when": "hideComments.regexEnabled == true && hideComments.regexUsed == true"
 				}
 			],
