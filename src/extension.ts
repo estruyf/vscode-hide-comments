@@ -1,76 +1,37 @@
+import { triggerRegexHide } from './utils/triggerRegexHide';
+import { ExtensionService } from './services/ExtensionService';
 import * as vscode from 'vscode';
+import { setComments } from './utils/setComments';
+import { setRegexLines } from './utils/setRegexLines';
+import { triggerCommentsHide } from './utils/triggerCommentsHide';
 
-const CONFIG_SECTION = "hideComments";
-const CONFIG_DEFAULT_ENABLED = "defaultEnabled";
-const CONFIG_CLEAN_START = "cleanStart";
-const CONFIG_TOKENS = "tokenColorCustomizations";
+export const CONFIG_SECTION = "hideComments";
+export const CONFIG_DEFAULT_ENABLED = "defaultEnabled";
+export const CONFIG_CLEAN_START = "cleanStart";
+export const CONFIG_REGEX = "regex";
 
-const trigger = async (enabled: boolean) => {
-	await vscode.commands.executeCommand('setContext', "hideCommentsEnabled", enabled);
+export const CONFIG_TOKENS = "tokenColorCustomizations";
 
-	// Folding
-	if (!enabled) {
-		await vscode.commands.executeCommand('editor.foldAllBlockComments');
-	} else {
-		await vscode.commands.executeCommand('editor.unfoldAll');
-	}
+export const CONTEXT_KEYS = {
+	comments: `${CONFIG_SECTION}.commentsEnabled`,
+	regex: `${CONFIG_SECTION}.regexEnabled`,
+	regexUsed: `${CONFIG_SECTION}.regexUsed`,
 }
 
-export async function activate({ subscriptions }: vscode.ExtensionContext) {
-	
+export const STATE_KEYS = {
+	regexEnabled: `${CONFIG_SECTION}.regexEnabled`,
+}
+
+export async function activate(context: vscode.ExtensionContext) {
+	const ext = ExtensionService.getInstance(context);
+
+	const { subscriptions } = context;
+
 	const config = vscode.workspace.getConfiguration("editor");
 	const colors = config.get<any>(CONFIG_TOKENS);
 
-	const extConfig = vscode.workspace.getConfiguration(CONFIG_SECTION);
-	const extDefaultEnabled = extConfig.get<boolean>(CONFIG_DEFAULT_ENABLED);
-	const extCleanStart = extConfig.get<boolean>(CONFIG_CLEAN_START);
-
-	const setComments = async (enabled: boolean) => {
-		if (config && colors) {
-			let textMateRules: any[] = colors["textMateRules"] || [];
-			let commentRuleIdx = textMateRules.findIndex(r => r && r.scope && (r.scope as any[]).includes("comment.line.double-slash"));
-
-			if (enabled) {
-				colors["comments"] = "#00000000";
-
-				if (commentRuleIdx >= 0) {
-					textMateRules[commentRuleIdx].settings.foreground = "#00000000";
-				} else {
-					textMateRules.push({
-						"scope": [
-							"comment",
-							"comment.block",
-							"comment.line",
-							"comment.line.double-slash",
-							"variable.other.jsdoc",
-							"storage.type.class.jsdoc",
-							"punctuation.definition.block.tag.jsdoc",
-							"punctuation.definition.bracket.curly.begin.jsdoc",
-							"punctuation.definition.bracket.curly.end.jsdoc",
-							"entity.name.type.instance.jsdoc",
-							"comment.block.documentation.ts",
-							"comment.block.documentation.js"
-						],
-						"settings": {
-							"foreground": "#00000000"
-						}
-					});
-				}
-			} else {
-				colors["comments"] = "";
-
-				if (commentRuleIdx >= 0) {
-					textMateRules = textMateRules.filter(r => r && r.scope && !(r.scope as any[]).includes("comment.line.double-slash"));
-				}
-			}
-
-			colors["textMateRules"] = textMateRules;
-
-			await config.update(CONFIG_TOKENS, colors);
-
-			trigger(colors && !colors["comments"]);
-		}
-	};
+	const extDefaultEnabled = ext.getSetting<boolean>(CONFIG_DEFAULT_ENABLED);
+	const extCleanStart = ext.getSetting<boolean>(CONFIG_CLEAN_START);
 
 	// Automatically start when the comments setting is not available
 	if (extDefaultEnabled && config && colors && !colors["comments"]) {
@@ -80,10 +41,17 @@ export async function activate({ subscriptions }: vscode.ExtensionContext) {
 		} else {
 			setComments(false);
 		}
+
+		await ext.setState(STATE_KEYS.regexEnabled, choice === "Yes");
+		setRegexLines();
 	}
 
-	if (extCleanStart && config && colors && colors["comments"]) {
-		setComments(false);
+	if (extCleanStart) {
+		if (config && colors && colors["comments"]) {
+			setComments(false);
+		}
+
+		await ext.setState(STATE_KEYS.regexEnabled, false);
 	}
 
 	const hideCommentsCmd = vscode.commands.registerCommand('hidecomments.hide', () => {
@@ -94,11 +62,38 @@ export async function activate({ subscriptions }: vscode.ExtensionContext) {
 		setComments(false);
 	});
 
+	const hideConsoleCmd = vscode.commands.registerCommand('hidecomments.regex.hide', async () => {
+		await ext.setState(STATE_KEYS.regexEnabled, true);
+		setRegexLines();
+	});
+
+	const showConsoleCmd = vscode.commands.registerCommand('hidecomments.regex.show', async () => {
+		await ext.setState(STATE_KEYS.regexEnabled, false);
+		setRegexLines();
+	});
+
 	// Set the type of action to show on the menu
-	trigger(colors && !colors["comments"]);
+	triggerCommentsHide(colors && !colors["comments"]);
+	triggerRegexHide();
+
+	// Show or hide the regex lines
+	setRegexLines();
+
+	vscode.window.onDidChangeActiveTextEditor((e) => {
+		setRegexLines();
+ 	}, null, context.subscriptions);
+
+	vscode.workspace.onDidChangeConfiguration((event) => {
+		if (event.affectsConfiguration(CONFIG_SECTION)) {
+			setRegexLines();
+			triggerRegexHide();
+		}
+ 	}, null, context.subscriptions);
 
 	subscriptions.push(hideCommentsCmd);
 	subscriptions.push(showCommentsCmd);
+	subscriptions.push(hideConsoleCmd);
+	subscriptions.push(showConsoleCmd);
 }
 
 // this method is called when your extension is deactivated

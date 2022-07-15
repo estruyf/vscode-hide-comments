@@ -40,17 +40,37 @@ On the editor title, a toggle action is available to show/hide the comments quic
 
 ![Title bar action toggle](./assets/toggle-action.png)
 
+> Note: In case you are using the `hideComments.regex` setting to hide additional lines with custom regex, you will have a second toggle action available.
+
 ## Settings
 
 - `hideComments.defaultEnabled`: Define if you want to enable or disable the extension on startup of Visual Studio Code. Default: `false`.
 - `hideComments.cleanStart`: Define if you want to start each instance by showing the comments in your files. Default: `true`.
+- `hideComments.regex`: Specify the regular expression to use to hide additional lines. Default: `null`.
 
 ## Commands
 
-The extension currently has two commands:
+The extension currently has the following commands:
 
 1. `Hide Comments: Hide all comments`
 2. `Hide Comments: Show all comments`
+3. `Hide Comments: Show lines by regex`: this command is only available when the `hideComments.regex` setting is set.
+4. `Hide Comments: hide lines by regex`: this command is only available when the `hideComments.regex` setting is set.
+
+## Hide additional lines by regex
+
+In case you want to hide additional lines with a custom regex, you can use the `hideComments.regex` setting. Here is an example:
+
+```json
+{
+  "hideComments.regex": [
+    {
+      "regex": "console\\.log\\(([^)]+)\\).*",
+      "flags": "igm"
+    }
+  ]
+}
+```
 
 ## Removing the extension
 

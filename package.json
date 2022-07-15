@@ -36,9 +36,7 @@
 		"Comments"
 	],
 	"activationEvents": [
-		"*",
-		"onCommand:hidecomments.hide",
-		"onCommand:hidecomments.show"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -54,6 +52,30 @@
 					"type": "boolean",
 					"description": "Specify if you want to reset to the default behaviour when you start a new Visual Studio Code instance.",
 					"default": true
+				},
+				"hideComments.regex": {
+					"type": ["array", "null"],
+					"description": "Specify the regular expression to use to hide additional lines.",
+					"default": null,
+					"examples": [
+						[{
+							"regex": "console\\.log\\(([^)]+)\\).*",
+							"flags": "igm"
+						}]
+					],
+					"items": {
+						"type": "object",
+						"properties": {
+							"regex": {
+								"type": "string",
+								"description": "The regular expression to use to hide additional lines."
+							},
+							"flags": {
+								"type": "string",
+								"description": "The flags to use for the regular expression."
+							}
+						}
+					}
 				}
 			}
 		},
@@ -67,6 +89,22 @@
 				"command": "hidecomments.show",
 				"title": "Hide Comments: Show all comments",
 				"icon": "$(eye)"
+			},
+			{
+				"command": "hidecomments.regex.hide",
+				"title": "Hide Comments: Hide lines by regex",
+				"icon": {
+					"dark": "assets/icons/dark/star-hide.svg",
+					"light": "assets/icons/light/star-hide.svg"
+				}
+			},
+			{
+				"command": "hidecomments.regex.show",
+				"title": "Hide Comments: Show lines by regex",
+				"icon": {
+					"dark": "assets/icons/dark/star.svg",
+					"light": "assets/icons/light/star.svg"
+				}
 			}
 		],
 		"menus": {
@@ -74,12 +112,32 @@
 				{
 					"command": "hidecomments.show",
 					"group": "navigation",
-					"when": "hideCommentsEnabled == false"
+					"when": "hideComments.commentsEnabled == false"
 				},
 				{
 					"command": "hidecomments.hide",
 					"group": "navigation",
-					"when": "hideCommentsEnabled == true"
+					"when": "hideComments.commentsEnabled == true"
+				},
+				{
+					"command": "hidecomments.regex.show",
+					"group": "navigation",
+					"when": "hideComments.regexEnabled == true && hideComments.regexUsed == false"
+				},
+				{
+					"command": "hidecomments.regex.hide",
+					"group": "navigation",
+					"when": "hideComments.regexEnabled == true && hideComments.regexUsed == true"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "hidecomments.regex.hide",
+					"when": "hideComments.regexEnabled == true"
+				},
+				{
+					"command": "hidecomments.regex.show",
+					"when": "hideComments.regexEnabled == true"
 				}
 			]
 		}
