@@ -2,9 +2,13 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
-## [1.5.0]
+## [1.6.0]
 
 - [#15](https://github.com/estruyf/vscode-hide-comments/issues/15): Add `Hide Comments: Show lines by regex` and `Hide Comments: hide lines by regex` commands.
+
+## [1.5.0]
+
+- [#12](https://github.com/estruyf/vscode-hide-comments/issues/12): C# comments support added
 
 ## [1.4.0]
 
