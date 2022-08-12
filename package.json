@@ -10,6 +10,8 @@
 		"color": "#011627",
 		"theme": "dark"
 	},
+  "license": "MIT",
+  "author": "Elio Struyf <elio@struyfconsulting.be> (https://www.eliostruyf.com)",
 	"badges": [
 		{
 			"description": "version",
@@ -36,7 +38,7 @@
 		"Comments"
 	],
 	"activationEvents": [
-		"*"
+		"onStartupFinished"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
