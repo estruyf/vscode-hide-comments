@@ -4,6 +4,7 @@ import * as vscode from 'vscode';
 import { setComments } from './utils/setComments';
 import { setRegexLines } from './utils/setRegexLines';
 import { triggerCommentsHide } from './utils/triggerCommentsHide';
+import { toggleComments } from './utils/toggleComments';
 
 export const CONFIG_SECTION = "hideComments";
 export const CONFIG_DEFAULT_ENABLED = "defaultEnabled";
@@ -54,6 +55,11 @@ export async function activate(context: vscode.ExtensionContext) {
 		await ext.setState(STATE_KEYS.regexEnabled, false);
 	}
 
+	const toggleCommentsCmd = vscode.commands.registerCommand('hidecomments.toggle', async () => {
+		toggleComments();
+	});
+
+
 	const hideCommentsCmd = vscode.commands.registerCommand('hidecomments.hide', () => {
 		setComments(true);
 	});
@@ -90,6 +96,7 @@ export async function activate(context: vscode.ExtensionContext) {
 		}
  	}, null, context.subscriptions);
 
+	subscriptions.push(toggleCommentsCmd);
 	subscriptions.push(hideCommentsCmd);
 	subscriptions.push(showCommentsCmd);
 	subscriptions.push(hideConsoleCmd);

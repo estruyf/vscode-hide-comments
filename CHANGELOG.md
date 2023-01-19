@@ -2,6 +2,10 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
+## [1.7.0]
+
+- [#20](https://github.com/estruyf/vscode-hide-comments/issues/20): Added a new command to tollgle the show/hide of all comments - `Hide Comments: Toggle the show/hide of all comments`
+
 ## [1.6.0]
 
 - [#15](https://github.com/estruyf/vscode-hide-comments/issues/15): Add `Hide Comments: Show lines by regex` and `Hide Comments: hide lines by regex` commands.

@@ -8,12 +8,12 @@
 
 <p align="center">
   <a href="https://marketplace.visualstudio.com/items?itemName=eliostruyf.vscode-hide-comments" title="Check it out on the Visual Studio Marketplace">
-    <img src="https://vsmarketplacebadge.apphb.com/version/eliostruyf.vscode-hide-comments.svg" alt="Visual Studio Marketplace" style="display: inline-block" />
+    <img src="https://vsmarketplacebadges.dev/version/eliostruyf.vscode-hide-comments.svg" alt="Visual Studio Marketplace" style="display: inline-block" />
   </a>
 
-  <img src="https://vsmarketplacebadge.apphb.com/installs/eliostruyf.vscode-hide-comments.svg" alt="Number of installs"  style="display: inline-block;margin-left:10px" />
+  <img src="https://vsmarketplacebadges.dev/installs/eliostruyf.vscode-hide-comments.svg" alt="Number of installs"  style="display: inline-block;margin-left:10px" />
   
-  <img src="https://vsmarketplacebadge.apphb.com/rating/eliostruyf.vscode-hide-comments.svg" alt="Ratings" style="display: inline-block;margin-left:10px" />
+  <img src="https://vsmarketplacebadges.dev/rating/eliostruyf.vscode-hide-comments.svg" alt="Ratings" style="display: inline-block;margin-left:10px" />
 
   <a href="https://www.buymeacoffee.com/zMeFRy9" title="Buy me a coffee" style="margin-left:10px">
     <img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-€%203-blue?logo=buy-me-a-coffee&style=flat" alt="Buy me a coffee" style="display: inline-block" />
@@ -52,10 +52,21 @@ On the editor title, a toggle action is available to show/hide the comments quic
 
 The extension currently has the following commands:
 
-1. `Hide Comments: Hide all comments`
-2. `Hide Comments: Show all comments`
-3. `Hide Comments: Show lines by regex`: this command is only available when the `hideComments.regex` setting is set.
-4. `Hide Comments: hide lines by regex`: this command is only available when the `hideComments.regex` setting is set.
+1. `Hide Comments: Toggle the show/hide of all comments`
+2. `Hide Comments: Hide all comments`
+3. `Hide Comments: Show all comments`
+4. `Hide Comments: Show lines by regex`: this command is only available when the `hideComments.regex` setting is set.
+5. `Hide Comments: hide lines by regex`: this command is only available when the `hideComments.regex` setting is set.
+
+### Keybindings
+
+The extension does not have any default keybindings. You can add your own keybindings to the commands from within Visual Studio Code it UI. Steps to do this:
+
+1. Open the command palette: `Ctrl+Shift+P` or `Cmd+Shift+P`;
+2. Type the command you want to add a keybinding. Example: `Hide Comments: Toggle the show/hide of all comments`;
+3. Click on the gear icon next to the command in the command palette. This opens the keyboard shortcuts editor;
+4. Add your keybinding and you are all set.
+
 
 ## Hide additional lines by regex
 
@@ -93,6 +104,6 @@ Please submit them via creating an issue in the project repository: [issue list]
 
 <p align="center">
   <a href="#">
-      <img src="https://estruyf-github.azurewebsites.net/api/VisitorHit?user=estruyf&repo=vscode-hide-comments&countColor=%23F141A8&labelColor=%230E131F" />
+      <img src="https://api.visitorbadge.io/api/VisitorHit?user=estruyf&repo=vscode-hide-comments&countColor=%23F141A8&labelColor=%230E131F" />
    </a>
 </p>

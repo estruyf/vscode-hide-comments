@@ -19,6 +19,7 @@ export const setComments = async (enabled: boolean) => {
       } else {
         textMateRules.push({
           "scope": [
+            "hidecomments",
             "comment",
             "comment.block",
             "comment.line",

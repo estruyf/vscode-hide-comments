@@ -88,6 +88,10 @@
 		},
 		"commands": [
 			{
+				"command": "hidecomments.toggle",
+				"title": "Hide Comments: Toggle the show/hide of all comments"
+			},
+			{
 				"command": "hidecomments.hide",
 				"title": "Hide Comments: Hide all comments",
 				"icon": "$(eye-closed)"
