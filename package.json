@@ -59,6 +59,10 @@
 					"description": "Specify the color of the comments.",
 					"default": "#00000000"
 				},
+				"hideComments.backup": {
+					"type": "object",
+					"description": "Specify the backup settings."
+				},
 				"hideComments.regex": {
 					"type": [
 						"array",

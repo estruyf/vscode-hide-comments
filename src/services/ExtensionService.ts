@@ -1,17 +1,16 @@
 import { ExtensionContext, workspace } from "vscode";
 import { CONFIG_SECTION } from "../extension";
 
-
 export class ExtensionService {
   private static instance: ExtensionService;
-  
+
   private constructor(private ctx: ExtensionContext) {}
 
   /**
    * Creates the singleton instance for the extension
-   * @param ctx 
+   * @param ctx
    */
-   public static getInstance(ctx?: ExtensionContext): ExtensionService {
+  public static getInstance(ctx?: ExtensionContext): ExtensionService {
     if (!ExtensionService.instance && ctx) {
       ExtensionService.instance = new ExtensionService(ctx);
     }
@@ -21,11 +20,14 @@ export class ExtensionService {
 
   /**
    * Get state
-   * @param propKey 
-   * @param type 
-   * @returns 
+   * @param propKey
+   * @param type
+   * @returns
    */
-  public async getState<T>(propKey: string, type: "workspace" | "global" = "global"): Promise<T | undefined> {
+  public async getState<T>(
+    propKey: string,
+    type: "workspace" | "global" = "global"
+  ): Promise<T | undefined> {
     if (type === "global") {
       return await this.ctx.globalState.get(propKey);
     } else {
@@ -35,11 +37,15 @@ export class ExtensionService {
 
   /**
    * Store value in the state
-   * @param propKey 
-   * @param propValue 
-   * @param type 
+   * @param propKey
+   * @param propValue
+   * @param type
    */
-  public async setState<T>(propKey: string, propValue: T, type: "workspace" | "global" = "global"): Promise<void> {
+  public async setState<T>(
+    propKey: string,
+    propValue: T,
+    type: "workspace" | "global" = "global"
+  ): Promise<void> {
     if (type === "global") {
       await this.ctx.globalState.update(propKey, propValue);
     } else {
@@ -49,11 +55,22 @@ export class ExtensionService {
 
   /**
    * Get a config setting
-   * @param key 
-   * @returns 
+   * @param key
+   * @returns
    */
   public getSetting<T>(key: string): T | undefined {
     const extConfig = workspace.getConfiguration(CONFIG_SECTION);
     return extConfig.get<T>(key);
+  }
+
+  /**
+   * Update a config setting
+   * @param key
+   * @param value
+   * @returns
+   */
+  public updateSetting<T>(key: string, value: T) {
+    const extConfig = workspace.getConfiguration(CONFIG_SECTION);
+    return extConfig.update(key, value);
   }
 }

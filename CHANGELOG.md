@@ -4,6 +4,7 @@ All notable changes to the "eliostruyf.vscode-hide-comments" extension will be d
 
 ## [1.8.0]
 
+- [#22](https://github.com/estruyf/vscode-hide-comments/issues/22): Backup the comments when hiding them, so that when you show them again, they will be restored.
 - [#24](https://github.com/estruyf/vscode-hide-comments/issues/24): Allow to set the color of the hidden comments with the `hideComments.color` setting.
 
 ## [1.7.0]

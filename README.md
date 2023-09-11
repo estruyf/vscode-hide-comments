@@ -44,6 +44,8 @@ On the editor title, a toggle action is available to show/hide the comments quic
 
 ## Settings
 
+- `hideComments.backup`: Used to backup the previous comments value (if set). Default: `null`.
+- `hideComments.color`: Defines the color for hiding the comments. Default: `#00000000`.
 - `hideComments.defaultEnabled`: Define if you want to enable or disable the extension on startup of Visual Studio Code. Default: `false`.
 - `hideComments.cleanStart`: Define if you want to start each instance by showing the comments in your files. Default: `true`.
 - `hideComments.regex`: Specify the regular expression to use to hide additional lines. Default: `null`.
@@ -66,7 +68,6 @@ The extension does not have any default keybindings. You can add your own keybin
 2. Type the command you want to add a keybinding. Example: `Hide Comments: Toggle the show/hide of all comments`;
 3. Click on the gear icon next to the command in the command palette. This opens the keyboard shortcuts editor;
 4. Add your keybinding and you are all set.
-
 
 ## Hide additional lines by regex
 

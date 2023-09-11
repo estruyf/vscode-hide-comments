@@ -11,6 +11,7 @@ export const CONFIG_DEFAULT_ENABLED = "defaultEnabled";
 export const CONFIG_CLEAN_START = "cleanStart";
 export const CONFIG_REGEX = "regex";
 export const CONFIG_COLOR = "color";
+export const CONFIG_BACKUP = "backup";
 
 export const CONFIG_TOKENS = "tokenColorCustomizations";
 
@@ -98,7 +99,7 @@ export async function activate(context: vscode.ExtensionContext) {
   );
 
   // Set the type of action to show on the menu
-  triggerCommentsHide(colors && !colors["comments"]);
+  triggerCommentsHide(colors);
   triggerRegexHide();
 
   // Show or hide the regex lines
