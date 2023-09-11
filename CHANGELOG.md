@@ -2,6 +2,10 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
+## [1.8.0]
+
+- [#24](https://github.com/estruyf/vscode-hide-comments/issues/24): Allow to set the color of the hidden comments with the `hideComments.color` setting.
+
 ## [1.7.0]
 
 - [#20](https://github.com/estruyf/vscode-hide-comments/issues/20): Added a new command to tollgle the show/hide of all comments - `Hide Comments: Toggle the show/hide of all comments`
@@ -18,7 +22,7 @@ All notable changes to the "eliostruyf.vscode-hide-comments" extension will be d
 
 - Added a title menu action to toggle to show/hide comments
 - [#6](https://github.com/estruyf/vscode-hide-comments/issues/6): Folding comment blocks when hiding comments gets triggered
-- [#11](https://github.com/estruyf/vscode-hide-comments/issues/11): Hiding JSDoc comments / classes / variables / ... 
+- [#11](https://github.com/estruyf/vscode-hide-comments/issues/11): Hiding JSDoc comments / classes / variables / ...
 
 ## [1.3.0]
 
@@ -42,7 +46,7 @@ All notable changes to the "eliostruyf.vscode-hide-comments" extension will be d
 
 - First release of the hide comments extension
 - New commands added for hiding and showing comments
-- Advanced settings for hiding comments 
+- Advanced settings for hiding comments
 
 ## [0.0.1]
 
