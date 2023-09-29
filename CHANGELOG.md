@@ -2,6 +2,10 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
+## [1.9.0]
+
+- [#25](https://github.com/estruyf/vscode-hide-comments/issues/25): Combine regex and comments toggle in one command. Can be disabled with the `hideComments.combineToggle` setting.
+
 ## [1.8.0]
 
 - [#22](https://github.com/estruyf/vscode-hide-comments/issues/22): Backup the comments when hiding them, so that when you show them again, they will be restored.
