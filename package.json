@@ -12,8 +12,7 @@
 	},
 	"license": "MIT",
 	"author": "Elio Struyf <elio@struyfconsulting.be> (https://www.eliostruyf.com)",
-	"badges": [
-		{
+	"badges": [{
 			"description": "version",
 			"url": "https://img.shields.io/github/package-json/v/estruyf/vscode-hide-comments?color=green&label=vscode-hide-comments&style=flat-square",
 			"href": "https://github.com/estruyf/vscode-hide-comments"
@@ -45,6 +44,11 @@
 		"configuration": {
 			"title": "Hide Comments: Configuration",
 			"properties": {
+				"hideComments.foldOnHide": {
+					"type": "boolean",
+					"description": "Specify if you want to fold the code when comments are hidden.",
+					"default": true
+				},
 				"hideComments.defaultEnabled": {
 					"type": "boolean",
 					"description": "Specify if the hide comments extension is by default enabled on start of the project.",
@@ -77,12 +81,10 @@
 					"description": "Specify the regular expression to use to hide additional lines.",
 					"default": null,
 					"examples": [
-						[
-							{
-								"regex": "console\\.log\\(([^)]+)\\).*",
-								"flags": "igm"
-							}
-						]
+						[{
+							"regex": "console\\.log\\(([^)]+)\\).*",
+							"flags": "igm"
+						}]
 					],
 					"items": {
 						"type": "object",
@@ -100,8 +102,7 @@
 				}
 			}
 		},
-		"commands": [
-			{
+		"commands": [{
 				"command": "hidecomments.toggle",
 				"title": "Hide Comments: Toggle the show/hide of all comments"
 			},
@@ -133,8 +134,7 @@
 			}
 		],
 		"menus": {
-			"editor/title": [
-				{
+			"editor/title": [{
 					"command": "hidecomments.show",
 					"group": "navigation@-133",
 					"when": "hideComments.commentsEnabled == false"
@@ -155,8 +155,7 @@
 					"when": "hideComments.regexEnabled == true && hideComments.regexUsed == true"
 				}
 			],
-			"commandPalette": [
-				{
+			"commandPalette": [{
 					"command": "hidecomments.regex.hide",
 					"when": "hideComments.regexEnabled == true"
 				},

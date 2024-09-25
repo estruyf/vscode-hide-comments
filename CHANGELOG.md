@@ -2,6 +2,10 @@
 
 All notable changes to the "eliostruyf.vscode-hide-comments" extension will be documented in this file.
 
+## [1.10.0]
+
+- [#28](https://github.com/estruyf/vscode-hide-comments/issues/28): New setting `hideComments.foldOnHide` to control if you want to fold the comment blocks when hiding comments. Default: `true`.
+
 ## [1.9.0]
 
 - [#25](https://github.com/estruyf/vscode-hide-comments/issues/25): Combine regex and comments toggle in one command. Can be disabled with the `hideComments.combineToggle` setting.

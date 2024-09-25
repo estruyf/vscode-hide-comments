@@ -13,6 +13,7 @@ export const CONFIG_REGEX = "regex";
 export const CONFIG_COLOR = "color";
 export const CONFIG_BACKUP = "backup";
 export const CONFIG_COMBINE_TOGGLE = "combineToggle";
+export const CONFIG_FOLD_ON_HIDE = "foldOnHide";
 
 export const CONFIG_TOKENS = "tokenColorCustomizations";
 

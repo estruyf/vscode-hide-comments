@@ -48,6 +48,7 @@ On the editor title, a toggle action is available to show/hide the comments quic
 - `hideComments.color`: Defines the color for hiding the comments. Default: `#00000000`.
 - `hideComments.defaultEnabled`: Define if you want to enable or disable the extension on startup of Visual Studio Code. Default: `false`.
 - `hideComments.cleanStart`: Define if you want to start each instance by showing the comments in your files. Default: `true`.
+- `hideComments.foldOnHide`: Define if you want to fold the comment blocks when hiding comments. Default: `true`.
 - `hideComments.regex`: Specify the regular expression to use to hide additional lines. Default: `null`.
 
 ## Commands

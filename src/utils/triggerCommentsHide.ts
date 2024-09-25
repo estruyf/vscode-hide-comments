@@ -1,5 +1,5 @@
 import { commands } from "vscode";
-import { CONFIG_COLOR, CONTEXT_KEYS } from "../extension";
+import { CONFIG_COLOR, CONFIG_FOLD_ON_HIDE, CONTEXT_KEYS } from "../extension";
 import { ExtensionService } from "../services/ExtensionService";
 
 export const triggerCommentsHide = async (colors: any) => {
@@ -12,10 +12,15 @@ export const triggerCommentsHide = async (colors: any) => {
 
   await commands.executeCommand("setContext", CONTEXT_KEYS.comments, enabled);
 
-  // Folding
-  if (!enabled) {
-    await commands.executeCommand("editor.foldAllBlockComments");
-  } else {
-    await commands.executeCommand("editor.unfoldAll");
+  const foldOnHide =
+    ExtensionService.getInstance().getSetting<boolean>(CONFIG_FOLD_ON_HIDE);
+
+  if (foldOnHide) {
+    // Folding
+    if (!enabled) {
+      await commands.executeCommand("editor.foldAllBlockComments");
+    } else {
+      await commands.executeCommand("editor.unfoldAll");
+    }
   }
 };
